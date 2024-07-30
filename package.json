@@ -1,12 +1,12 @@
 {
   "name": "com.ktgame.ads.core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "com.ktgame.ads.core",
   "description": "Advertisement Core",
   "unity": "2019.4",
   "author": {
     "name": "ktgame",
     "email": "khanhquang0912qh@gmail.com",
-    "url": "https://unimob.com.vn"
+    "url": "https://github.com/KhanhTQ-hub/com.ktgame.ads.core.git"
   }
 }

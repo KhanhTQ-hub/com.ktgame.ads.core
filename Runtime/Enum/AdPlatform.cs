@@ -5,6 +5,7 @@ namespace com.ktgame.ads.core
         Unidentified = 0,
         IronSource = 1,
         Max = 2,
-        Admob = 3
+        Admob = 3,
+        MRec = 4,
     }
 }

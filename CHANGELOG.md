@@ -1,3 +1,11 @@
+## [1.0.7](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/compare/v1.0.6...v1.0.7) (2025-07-02)
+
+
+### Bug Fixes
+
+* add if ([2dbd215](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/2dbd215e2214b6235a041295123c456f03dd58ad))
+* ci ([ba2666c](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/ba2666c53f6a1cae4052b0843bd56a520548a5db))
+
 ## [1.0.6](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/compare/v1.0.5...v1.0.6) (2025-07-02)
 
 

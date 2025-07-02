@@ -1,3 +1,10 @@
+## [1.0.13](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/compare/v1.0.12...v1.0.13) (2025-07-02)
+
+
+### Bug Fixes
+
+* token ([f26081f](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/f26081fcdd9ad42e60ea222c8784e2089f5ada2c))
+
 ## [1.0.12](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/compare/v1.0.11...v1.0.12) (2025-07-02)
 
 

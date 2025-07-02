@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/compare/v1.0.3...v1.0.4) (2025-07-02)
+
+
+### Bug Fixes
+
+* add verdaccio ([1221bf5](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/1221bf55bf035c4afe521bb6acaa8d29b03b77fb))
+
 ## [1.0.3](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/compare/v1.0.2...v1.0.3) (2025-07-01)
 
 

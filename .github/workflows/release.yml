@@ -9,17 +9,14 @@ on:
 
 jobs:
   release:
-    if: github.ref_type == 'branch' && github.ref_name == 'main'
-    name: Semantic Release
+    name: Release
     runs-on: ubuntu-latest
-
-    permissions:
+    permissions:   # ✅ Grant permissions
       contents: write
       issues: write
       pull-requests: write
-
     steps:
-        - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 

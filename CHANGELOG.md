@@ -1,3 +1,10 @@
+## [1.0.12](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/compare/v1.0.11...v1.0.12) (2025-07-02)
+
+
+### Bug Fixes
+
+* 2 ([139c827](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/139c827ee241a1d21ddc77ccc4ef5ef5505ed69b))
+
 ## [1.0.11](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/compare/v1.0.10...v1.0.11) (2025-07-02)
 
 

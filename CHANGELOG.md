@@ -1,3 +1,16 @@
+## [1.0.8](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/compare/v1.0.7...v1.0.8) (2025-07-02)
+
+
+### Bug Fixes
+
+* 1 ([d8a03c6](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/d8a03c6becd2f61c9e02cfd4307b640923ab2b0b))
+* 1 ([c87a5f1](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/c87a5f1fda884588e16e56c78e25d3214f758bba))
+* check ([16b25ce](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/16b25cea8883e1f89646b16eae3f4593ac263d57))
+* fix ([a926998](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/a926998893915dea51ecb641414029c54ff23b5b))
+* remove if ([9d5a0e0](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/9d5a0e06d351328fe856e82bd8fe9bcb5a3784d5))
+* test ([33cdfd2](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/33cdfd27a654048163e531c9c99ae78738e60833))
+* trigger ([ae11354](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/ae11354754a0e60c8b21f0aaa5891758d3b3860c))
+
 ## [1.0.7](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/compare/v1.0.6...v1.0.7) (2025-07-02)
 
 

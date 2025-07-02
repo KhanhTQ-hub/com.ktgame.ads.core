@@ -19,29 +19,16 @@ jobs:
       pull-requests: write
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+        - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Use NPM public registry
-        run: npm config set registry https://registry.npmjs.org/
-
-      - name: Install semantic-release plugins
-        run: npm install @semantic-release/changelog @semantic-release/git @semantic-release/github --no-audit --silent
-
-      - name: Run semantic-release
+      - name: Release
         uses: cycjimmy/semantic-release-action@v3
         with:
           extra_plugins: |
             @semantic-release/changelog
             @semantic-release/git
-            @semantic-release/github
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

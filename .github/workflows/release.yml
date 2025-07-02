@@ -3,7 +3,7 @@ name: CI & Publish to Verdaccio
 on:
   push:
     tags:
-      - 'v*.*.*'
+      - v1.0.7
 
 jobs:
   publish:

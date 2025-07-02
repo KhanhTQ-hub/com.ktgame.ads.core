@@ -1,3 +1,13 @@
+## [1.0.5](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/compare/v1.0.4...v1.0.5) (2025-07-02)
+
+
+### Bug Fixes
+
+* cicd ([0deb64a](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/0deb64afcd75e897aed977b98f382702e4112020))
+* fix ([f759a1b](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/f759a1bfcc35e8c85b83bdd8c96222d78625ef53))
+* fix ([bd626cd](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/bd626cdc4d65a14a418a5bbd2720e247f3075428))
+* release package version ([36197e9](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/commit/36197e922a92c5504625f21cf0cd698437e6e84c))
+
 ## [1.0.4](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/compare/v1.0.3...v1.0.4) (2025-07-02)
 
 

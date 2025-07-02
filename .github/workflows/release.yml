@@ -42,11 +42,11 @@ jobs:
 
       - name: 🔐 Authenticate to Verdaccio
         run: |
-  echo "//3.25.208.95:4873/:username=${{ secrets.VERDACCIO_USERNAME }}" >> ~/.npmrc
-  echo "//3.25.208.95:4873/:_password=$(echo -n '${{ secrets.VERDACCIO_PASSWORD }}' | base64)" >> ~/.npmrc
-  echo "//3.25.208.95:4873/:email=${{ secrets.VERDACCIO_EMAIL }}" >> ~/.npmrc
-  echo "always-auth=true" >> ~/.npmrc
-  echo "@ktgame:registry=http://3.25.208.95:4873" >> ~/.npmrc
+          echo "//3.25.208.95:4873/:username=${{ secrets.VERDACCIO_USERNAME }}" >> ~/.npmrc
+          echo "//3.25.208.95:4873/:_password=$(echo -n '${{ secrets.VERDACCIO_PASSWORD }}' | base64)" >> ~/.npmrc
+          echo "//3.25.208.95:4873/:email=${{ secrets.VERDACCIO_EMAIL }}" >> ~/.npmrc
+          echo "always-auth=true" >> ~/.npmrc
+          echo "@ktgame:registry=http://3.25.208.95:4873" >> ~/.npmrc
 
       - name: 📦 Publish to Verdaccio
         run: |

@@ -2,8 +2,6 @@ name: CI & Publish to Verdaccio
 
 on:
   push:
-    branches:
-      - main
     tags:
       - 'v*.*.*'
 

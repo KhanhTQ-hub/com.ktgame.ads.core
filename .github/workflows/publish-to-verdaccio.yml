@@ -1,0 +1,36 @@
+name: Publish Unity Package to Verdaccio
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install || echo "No dependencies"
+
+      - name: Extract version from Git tag and update package.json
+        run: |
+          echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+          npm version $VERSION --no-git-tag-version
+
+      - name: Set Verdaccio registry
+        run: npm config set registry http://3.25.208.95:4873/
+
+      - name: Authenticate with Verdaccio
+        run: echo "//3.25.208.95:4873/:_authToken=${{ secrets.VERDACCIO_TOKEN }}" >> ~/.npmrc
+
+      - name: Publish to Verdaccio
+        run: npm publish --access=public

@@ -26,6 +26,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Use public npm registry for plugin install
+        run: npm config set registry https://registry.npmjs.org/
+
       - name: Install dependencies
         run: npm install
 
@@ -39,16 +42,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract version from Git tag
+      - name: Get latest Git tag version (after semantic release)
         run: |
-          TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+          TAG=$(git describe --tags $(git rev-list --tags --max-count=1))
           VERSION=${TAG#v}
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Update package.json version
         run: npm version $VERSION --no-git-tag-version
 
-      - name: Set Verdaccio registry
+      - name: Switch to Verdaccio registry
         run: npm config set registry http://3.25.208.95:4873/
 
       - name: Authenticate with Verdaccio

@@ -2,8 +2,8 @@ name: CI & Publish to Verdaccio
 
 on:
   push:
-    tags:
-      - v1.0.7
+    branches:
+      - main
 
 jobs:
   publish:

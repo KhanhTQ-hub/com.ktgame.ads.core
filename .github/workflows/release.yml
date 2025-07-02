@@ -30,9 +30,6 @@ jobs:
           VERSION=${GITHUB_REF#refs/tags/v}
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
-      - name: Update package.json
-        run: npm version $VERSION --no-git-tag-version
-
       - name: Set Verdaccio registry
         run: npm config set registry http://3.25.208.95:4873/
 

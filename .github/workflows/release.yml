@@ -4,14 +4,11 @@ on:
   push:
     branches:
       - main
-    tags:
-      - 'v*'  # Trigger khi có tag dạng v1.0.0, v1.2.3, ...
 
 jobs:
-  release:
-    name: 🔖 Release Tag
+  release-and-publish:
+    name: 🔖 Release & 📦 Publish
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/heads/')
     permissions:
       contents: write
       issues: write
@@ -19,7 +16,7 @@ jobs:
 
     steps:
       - name: 🛎 Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -37,16 +34,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  publish:
-    name: 📦 Publish to Verdaccio
-    needs: release
-    runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/v')
-    steps:
-      - name: 🛎 Checkout Code
-        uses: actions/checkout@v4
-
-      - name: 🔧 Setup Node.js
+      - name: 🔧 Re-Setup Node with Registry for Publish
         uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -54,8 +42,12 @@ jobs:
 
       - name: 🔐 Authenticate to Verdaccio
         run: |
-          echo -e "${{ secrets.VERDACCIO_USERNAME }}\n${{ secrets.VERDACCIO_PASSWORD }}\n${{ secrets.VERDACCIO_EMAIL }}" | npm login --registry=http://3.25.208.95:4873
+          echo "//3.25.208.95:4873/:username=${{ secrets.VERDACCIO_USERNAME }}" >> .npmrc
+          echo "//3.25.208.95:4873/:_password=$(echo -n '${{ secrets.VERDACCIO_PASSWORD }}' | base64)" >> .npmrc
+          echo "//3.25.208.95:4873/:email=${{ secrets.VERDACCIO_EMAIL }}" >> .npmrc
+          echo "always-auth=true" >> .npmrc
+          echo "@ktgame:registry=http://3.25.208.95:4873" >> .npmrc
 
-      - name: 📦 Publish Package
+      - name: 📦 Publish to Verdaccio
         run: |
-          npm publish --registry=http://3.25.208.95:4873
+          npm publish --registry http://3.25.208.95:4873

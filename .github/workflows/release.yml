@@ -1,40 +1,61 @@
-name: CI & Publish to Verdaccio
+name: CI/CD - Release & Publish to Verdaccio
 
 on:
   push:
     branches:
       - main
+    tags:
+      - 'v*'  # Trigger khi có tag dạng v1.0.0, v1.2.3, ...
 
 jobs:
-  publish:
-    name: Publish to Verdaccio
+  release:
+    name: 🔖 Release Tag
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/heads/')
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
 
     steps:
-      - name: Checkout code
+      - name: 🛎 Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-      - name: Setup Node.js
+      - name: 🔧 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 18
 
-      - name: Use NPM public registry temporarily
-        run: npm config set registry https://registry.npmjs.org/
+      - name: 🚀 Semantic Release
+        uses: cycjimmy/semantic-release-action@v3
+        with:
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install dependencies (optional)
-        run: npm install || echo "No dependencies"
+  publish:
+    name: 📦 Publish to Verdaccio
+    needs: release
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
+    steps:
+      - name: 🛎 Checkout Code
+        uses: actions/checkout@v4
 
-      - name: Extract version from tag
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          registry-url: http://3.25.208.95:4873
+
+      - name: 🔐 Authenticate to Verdaccio
         run: |
-          VERSION=${GITHUB_REF#refs/tags/v}
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo -e "${{ secrets.VERDACCIO_USERNAME }}\n${{ secrets.VERDACCIO_PASSWORD }}\n${{ secrets.VERDACCIO_EMAIL }}" | npm login --registry=http://3.25.208.95:4873
 
-      - name: Set Verdaccio registry
-        run: npm config set registry http://3.25.208.95:4873/
-
-      - name: Authenticate with Verdaccio
-        run: echo "//3.25.208.95:4873/:_authToken=${{ secrets.VERDACCIO_TOKEN }}" >> ~/.npmrc
-
-      - name: Publish to Verdaccio
-        run: npm publish --access=public
+      - name: 📦 Publish Package
+        run: |
+          npm publish --registry=http://3.25.208.95:4873

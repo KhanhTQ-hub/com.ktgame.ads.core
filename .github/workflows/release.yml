@@ -8,27 +8,6 @@ on:
       - 'v*.*.*'
 
 jobs:
-  release:
-    name: Release
-    runs-on: ubuntu-latest
-    permissions:   # ✅ Grant permissions
-      contents: write
-      issues: write
-      pull-requests: write
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Release
-        uses: cycjimmy/semantic-release-action@v3
-        with:
-          extra_plugins: |
-            @semantic-release/changelog
-            @semantic-release/git
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   publish:
     if: startsWith(github.ref, 'refs/tags/v')
     name: Publish to Verdaccio

@@ -37,7 +37,6 @@ jobs:
       - name: 🔐 Authenticate to Verdaccio
         run: |
           yarn install
-          git checkout upm
           echo "//3.25.208.95:4873/:_authToken=\${VERDACCIO_TOKEN}" > .npmrc
           npm publish
         env:

@@ -34,17 +34,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 🔧 Re-Setup Node with Registry for Publish
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          registry-url: http://3.25.208.95:4873
-
       - name: 🔐 Authenticate to Verdaccio
         run: |
-          echo "//3.25.208.95:4873/:_authToken=${{ secrets.VERDACCIO_TOKEN }}" >> ~/.npmrc
-          echo "always-auth=true" >> ~/.npmrc
-          
-      - name: 📦 Publish to Verdaccio
-        run: |
-          npm publish --registry http://3.25.208.95:4873
+          yarn install
+          git checkout upm
+          echo "//3.25.208.95:4873/:_authToken=\${VERDACCIO_TOKEN}" > .npmrc
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.VERDACCIO_TOKEN}}

@@ -14,5 +14,6 @@ namespace com.ktgame.ads.core
         void SetInterstitial(IInterstitialAdapter interstitialAdapter);
         void SetRewardVideo(IRewardVideoAdapter rewardVideoAdapter);
         void SetAppOpen(IAppOpenAdapter appOpenAdapter);
+        void SetMRec(IMRecAdapter mRecAdapter);
     }
 }

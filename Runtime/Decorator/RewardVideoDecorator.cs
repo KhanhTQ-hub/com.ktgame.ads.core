@@ -74,7 +74,7 @@ namespace com.ktgame.ads.core
             Adapter.Load();
         }
 
-        public void Show(AdPlacement adPlacement)
+        public virtual void Show(AdPlacement adPlacement)
         {
             Adapter.Show(adPlacement);
         }

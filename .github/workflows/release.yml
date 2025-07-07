@@ -34,10 +34,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 🔐 Authenticate to Verdaccio
+      - name: 📝 Configure .npmrc
         run: |
-          yarn install
-          echo "//3.25.208.95:4873/:_authToken=$NODE_AUTH_TOKEN" > ~/.npmrc
-          npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.VERDACCIO_TOKEN}}
+          echo "@com.ktgame:registry=http://3.25.208.95:4873/" >> ~/.npmrc
+          echo "//3.25.208.95:4873/:_authToken=${{ secrets.VERDACCIO_TOKEN }}" >> ~/.npmrc
+          echo "always-auth=true" >> ~/.npmrc
+      - name: 📦 Publish to Verdaccio
+        run: npm publish --access public

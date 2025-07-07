@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 
 namespace com.ktgame.ads.core.extensions
 {
-	public class ExponentialCooldown
+	public class ExponentialCooldown : IRequestStrategy
 	{
 		public event Action OnRequest;
 
@@ -33,10 +33,7 @@ namespace com.ktgame.ads.core.extensions
 
 		public void Request()
 		{
-			if (_cooldown)
-			{
-				return;
-			}
+			if (_cooldown) return;
 
 			_cooldown = true;
 			_retryAttempt++;

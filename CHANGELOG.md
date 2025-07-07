@@ -1,3 +1,10 @@
+## [1.0.15](https://github.com/KhanhTQ-Organization/com.ktgame.ads.core/compare/v1.0.14...v1.0.15) (2025-07-07)
+
+
+### Bug Fixes
+
+* update core ads mrec ([c6d19e4](https://github.com/KhanhTQ-Organization/com.ktgame.ads.core/commit/c6d19e4e2a639e2af36e630e0f76492dd3c1074a))
+
 ## [1.0.14](https://github.com/KhanhTQ-hub/com.ktgame.ads.core/compare/v1.0.13...v1.0.14) (2025-07-03)
 
 
